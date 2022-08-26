@@ -4,7 +4,6 @@ function countEntrants(entrants) {
   // seu código aqui
 }
 
-
 function calculateEntry(entrants) {
   // seu código aqui
 }
