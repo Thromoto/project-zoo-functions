@@ -21,13 +21,16 @@ describe('Testes da função getOpeningHours', () => {
   test('Verifica se o zoo está fechado na quarta a noite', () => {
     expect(getOpeningHours('Wednesday', '09:00-PM')).toBe('The zoo is closed');
   });
-//   test ('', () => {
-//     expect().toBe();
-//   });
-//   test ('', () => {
-//     expect().toBe();
-//   });
-//   test ('', () => {
-//     expect().toBe();
-//   });
+  test('Verifica se o dia é valido', () => {
+    expect(() => getOpeningHours('Thu', '09:00-AM')).toThrowError(new Error('The day must be valid. Example: Monday'));
+  });
+  test('Verifica se os minutos são numeros', () => {
+    expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrowError(new Error('The minutes should represent a number'));
+  });
+  test('Verifica se é AM ou PM', () => {
+    expect(() => getOpeningHours('Friday', '09:00-ZM')).toThrow(new Error('The abbreviation must be \'AM\' or \'PM\''));
+  });
+  test('Verifica se hora representa um numero', () => {
+    expect(() => getOpeningHours('Saturday', 'C9:00-AM')).toThrow('The hour should represent a number');
+  });
 });
