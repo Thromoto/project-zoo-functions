@@ -10,8 +10,19 @@ const data = require('../data/zoo_data');
 //   { name: 'Carlos Nogueira', age: 50 },
 // ];
 
+const child = (crianca) => crianca.filter((contagem) => contagem.age < 18).length;
+const adult = (adulto) => adulto.filter((contagem) => contagem.age >= 18 && contagem.age < 50)
+  .length;
+const senior = (velho) => velho.filter((contagem) => contagem.age >= 50).length;
+
 function countEntrants(entrants) {
   // seu código aqui
+  const entradaPessoas = {
+    child: child(entrants),
+    adult: adult(entrants),
+    senior: senior(entrants),
+  };
+  return entradaPessoas;
 }
 
 function calculateEntry(entrants) {
