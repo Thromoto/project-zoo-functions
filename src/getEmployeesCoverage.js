@@ -1,13 +1,9 @@
 const data = require('../data/zoo_data');
-
 // const { employees } = data;
+// const nomeOuSobrenomeOuId = (objeto) => employees.some((func) => func.firstName === objeto.name || func.lastName === objeto.name || func.id === objeto.id);
 
-// const actual = getEmployeesCoverage({ name: 'Sharonda' });
-
-function getEmployeesCoverage() {
+function getEmployeesCoverage(objeto) {
   // seu código aqui
 }
-
-console.log(getEmployeesCoverage({ name: 'Sharonda' }));
 
 module.exports = getEmployeesCoverage;

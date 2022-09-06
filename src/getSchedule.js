@@ -33,18 +33,38 @@ const diasZoo = {
   Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
 };
 
-// const { species } = data;
+const { species } = data;
+// const { hours } = data;
 
-// const dias = (dia) => species.filter((especie) => especie.availability.includes(dia)).map((animal) => animal.name)
+// const animalName = species.find((tipoAnimal) => tipoAnimal.name);
+const datas = species.find((dias) => dias.availability);
+const segunda = {
+  Monday: { officeHour: 'CLOSED', exhibition: 'The zoo will be closed!' },
+};
 
 function getSchedule(scheduleTarget) {
   // seu código aqui
-  if (scheduleTarget === undefined) {
-    return diasZoo;
+  const animal = species.find((nome) => nome.name === scheduleTarget);
+  if (animal) {
+    return animal.availability;
   }
-  // if (scheduleTarget.some === species.name) {
-  //   return dias;
+  if (scheduleTarget === 'Monday') {
+    return segunda;
+  }
+  const objAnimal = {};
+  if (Object.keys(diasZoo).find((diaAni) => diaAni === scheduleTarget)) {
+    objAnimal[scheduleTarget] = diasZoo[scheduleTarget];
+    return objAnimal;
+  }
+  // if (!scheduleTarget || scheduleTarget !== animalName || scheduleTarget !== datas) {
+  return diasZoo;
   // }
 }
+
+// function dias(xxx) {
+//   const animal = species.find((nome) => nome.name === xxx);
+//   console.log(animal.availability);
+// }
+// dias('lions');
 
 module.exports = getSchedule;
